@@ -9,6 +9,7 @@
 <style>
 body{
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  
 }
   #box{
     height: auto;
@@ -18,12 +19,11 @@ body{
   margin: 0;
     box-shadow: 0 12px 50px -11px orange;
   }
-  input{
+  .inputBox_value{
     border: none;
     border-bottom: 1px solid orange;
-outline: none;
+    outline: none;
     width: 140px;
-   
     font-weight: 400;
     letter-spacing: 1.5px;
     font-size: 1.3rem;
@@ -41,7 +41,7 @@ letter-spacing: 1px;
   text-align: center;
   color: orange;
 }
-button{
+#calculation_btn{
   font-size: 1.2rem;
  border: none;
   outline: none;
@@ -53,6 +53,7 @@ width: auto;
 padding:10px;
 font-weight: 700;
 letter-spacing: 1px;
+
 }
 
 .output{
@@ -73,31 +74,57 @@ font-size: 1.2rem;
   text-align: center;
   letter-spacing: 1px;
   font-size: 20px;
-  
   font-weight: 900;
-  
+}
+#eMi{
+  margin: 10px;
+  padding: 10px;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+
+}
+h5{
+  color: orange;
+  font-size: 1.5rem;
+}
+strong{
+  color: blue;
+  opacity: 0.6;
 }
 </style>
 <body>
+<div id="eMi">
+  <a href="#headings"><h5 >EMI Calculator</h5></a>
 
+<p><strong>What is EMI ?</strong> <br> EMI stands for <strong>E</strong>quated 
+<strong>M</strong>onthly <strong>I</strong>nstallment. It is a fixed payment to pay at fixed interval for particular time.</p>
+<p><strong>Advantages of EMI. </strong> <br>
+<li>Affordability </li> <li> Flexibility</li> <li>Easy on the Wallet</li> <li> Personal Financial Planing</li> </p>
+
+<p><strong>Disadvantages of EMI. </strong> <br>
+ <li> Long term debt</li> <li> Additional cost</li>  <li>Prepayment Penalty </li></p>
+ <center>
+    <img src="emi-calculator_l9Xlp4V.png" alt="" height="200" width="350">
+    <figcaption style="font-weight: 800;margin-top: 5px;">EMI Calculation</figcaption>
+  </center>
+</div>
 
 <div id="box">
  <p id="headings">Calculate Your EMIs</p>
     <p class="label">Loan Amount <span class="span">[₹]</span> </p>
-   <p> <input type="number" id="amount" value="100000" onchange="calculate();"> </p>
+   <p> <input type="number" id="amount" class="inputBox_value" value="100000" onchange="calculate();"> </p>
   
     <p class="label">Annual interest <span class="span">[%]</span> </p>
-  <p> <input type="number" id="apr" value="11" onchange="calculate();"> </p>
+  <p> <input type="number" id="apr" class="inputBox_value" value="11" onchange="calculate();"> </p>
 
     <p class="label">Loan Tenure <span class="span">[Months]</span> </p>
-     <p> <input type="number" id="months" value="12" onchange="calculate();"> </p>
+     <p> <input type="number" id="months" class="inputBox_value" value="12" onchange="calculate();"> </p>
       <br>
-      <button onclick="calculate();">Calculate</button>
+      <button id="calculation_btn" onclick="calculate();">Calculate</button>
       <div id="resultdiv" >
  
-        
-      <p id="headings">Your EMIs Status</p>
         <hr>
+      <p id="headings">Your EMIs Status</p>
        <p style="font-size: large;">Your EMI is: <span class="rs">₹ </span> <span class="output" id="payment">9250.00</p>
          <hr>
        <p style="font-size: large;">Total payment: <span class="rs">₹ </span> <span class="output" id="total">111000.00</p>
@@ -121,6 +148,8 @@ document.getElementById("total").innerHTML=amountToPay.toFixed(2);
 
 const emi=amountToPay/months
 document.getElementById("payment").innerHTML=emi.toFixed(2);
+
+window.scrollBy({top:450,behavior:'smooth'})
 }
 
     </script>
